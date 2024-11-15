@@ -5,15 +5,15 @@ class Object:
     pass
 
 
-def introspection_info(obj_):
-    type_ = type(obj_).__name__
-    attribute = getattr(obj_, '__dict__', None)
+def introspection_info(obj):
+    type_ = type(obj).__name__
+    attribute = getattr(obj, '__dict__', None)
     if attribute is None:
         attribute = []
     else:
         attribute = list(attribute)
-    methods = dir(obj_)
-    module = obj_.__class__.__module__
+    methods = dir(obj)
+    module = obj.__class__.__module__
     info = {'type': type_, 'attributes': attribute, 'methods': methods, 'module': module}
     return info
 
